@@ -37,6 +37,6 @@ jobs:
 
       - name: Deploy Helm Chart
         run: |
-          helm upgrade --install my-nginx-release . \
+          helm upgrade --install url-checker ./helm/prometheus-url-checker . \
             --namespace staging \
             --create-namespace \
