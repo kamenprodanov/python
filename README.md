@@ -14,13 +14,14 @@ A simple Python service that checks the health and response time of external URL
 ---
 
 
-
+---
 ###  Run Locally
 
 ```bash
 pip install -r requirements.txt
 python app.py
 
+---
 
 ### 1️⃣ Build Docker image
 ```bash
