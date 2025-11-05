@@ -16,24 +16,28 @@ A simple Python service that checks the health and response time of external URL
 
 ### Running Locally, build and push image, deploying to K8S cluster
 
+
+### 1 Running Locally
 ```bash
 pip install -r requirements.txt
 python app.py
+```
 
-
-### 1️⃣ Build Docker image
+### 2 Build Docker image
 ```bash
 docker build -t <my-dockerhub-username>/prometheus-url-checker:latest .
-
-### 2 Push Docker image
+```
+### 3 Push Docker image
+```
 docker push <my-dockerhub-username>/prometheus-url-checker:latest
+```
 
-### 3 Deploying to K8S cluster
+### 4 Deploying to K8S cluster
 aws eks update-kubeconfig --region eu-central-1 --name <your-cluster-name>
 helm install url-checker ./helm/prometheus-url-checker \
   --namespace monitoring --create-namespace
 
-### 4 Verifying
+### 5 Verifying
 
 kubectl get pods -n monitoring
 kubectl port-forward svc/url-checker 8000:8000 -n monitoring
