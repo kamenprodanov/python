@@ -13,9 +13,7 @@ A simple Python service that checks the health and response time of external URL
 
 ---
 
-### 1️⃣ Build Docker image
-```bash
-docker build -t <my-dockerhub-username>/prometheus-url-checker:latest .
+
 
 ## 🐍 Run Locally
 
@@ -24,3 +22,6 @@ pip install -r requirements.txt
 python app.py
 
 
+### 1️⃣ Build Docker image
+```bash
+docker build -t <my-dockerhub-username>/prometheus-url-checker:latest .
