@@ -14,8 +14,7 @@ A simple Python service that checks the health and response time of external URL
 ---
 
 
-
-### Run Locally
+### Running Locally, build and push image, deploying to K8S cluster
 
 ```bash
 pip install -r requirements.txt
