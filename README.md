@@ -26,7 +26,7 @@ python app.py
 docker build -t <my-dockerhub-username>/prometheus-url-checker:latest .
 
 ### 2 Push Docker image
-docker push <your-dockerhub-username>/prometheus-url-checker:latest
+docker push <my-dockerhub-username>/prometheus-url-checker:latest
 
 ### 3 Deploying to K8S cluster
 aws eks update-kubeconfig --region eu-central-1 --name <your-cluster-name>
