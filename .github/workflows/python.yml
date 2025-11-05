@@ -3,7 +3,7 @@ name: Deploy to Monitoring EKS
 on:
   #push:
    # branches:
-    #  - main   # or staging branch
+    #  - main   
   workflow_dispatch:
 
 permissions:
@@ -22,7 +22,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::673605974923:role/githubactions-python
-          aws-region: eu-central-1  # change as needed
+          aws-region: eu-central-1  
 
       - name: Update kubeconfig for EKS
         run: |
@@ -33,7 +33,7 @@ jobs:
       - name: Install Helm (if not already present)
         uses: azure/setup-helm@v4
         with:
-          version: v3.13.3  # or current stable
+          version: v3.13.3  
 
       - name: Deploy Helm Chart
         run: |
