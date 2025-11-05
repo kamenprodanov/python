@@ -1,0 +1,42 @@
+name: Deploy to Monitoring EKS
+
+on:
+  #push:
+   # branches:
+    #  - main   # or staging branch
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Configure AWS Credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::673605974923:role/githubactions-python
+          aws-region: eu-central-1  # change as needed
+
+      - name: Update kubeconfig for EKS
+        run: |
+          aws eks update-kubeconfig \
+            --region eu-central-1 \
+            --name helmdeploy
+
+      - name: Install Helm (if not already present)
+        uses: azure/setup-helm@v4
+        with:
+          version: v3.13.3  # or current stable
+
+      - name: Deploy Helm Chart
+        run: |
+          helm upgrade --install my-nginx-release . \
+            --namespace staging \
+            --create-namespace \
