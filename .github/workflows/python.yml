@@ -28,7 +28,7 @@ jobs:
         run: |
           aws eks update-kubeconfig \
             --region eu-central-1 \
-            --name helmdeploy
+            --name python
 
       - name: Install Helm (if not already present)
         uses: azure/setup-helm@v4
