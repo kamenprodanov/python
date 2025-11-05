@@ -25,3 +25,6 @@ python app.py
 ### 1️⃣ Build Docker image
 ```bash
 docker build -t <my-dockerhub-username>/prometheus-url-checker:latest .
+
+### 2 Push Docker image
+docker push <your-dockerhub-username>/prometheus-url-checker:latest
