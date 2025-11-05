@@ -1,6 +1,0 @@
-apiVersion: v2
-name: prometheus-url-checker
-description: A simple Python app exposing Prometheus metrics for external URLs
-type: application
-version: 0.1.0
-appVersion: "1.0.0"
